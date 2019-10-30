@@ -1,0 +1,199 @@
+@import 'bootstrap';
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+// @import "bootstrap/root";
+@import "bootstrap/reboot";
+// @import "bootstrap/type";
+// @import "bootstrap/images";
+// @import "bootstrap/code";
+// @import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+// @import "bootstrap/buttons";
+// @import "bootstrap/transitions";
+// @import "bootstrap/dropdown";
+// @import "bootstrap/button-group";
+// @import "bootstrap/input-group";
+@import "bootstrap/custom-forms";
+@import "bootstrap/nav";
+@import "bootstrap/navbar";
+@import "bootstrap/card";
+@import "bootstrap/breadcrumb";
+@import "bootstrap/pagination";
+@import "bootstrap/badge";
+@import "bootstrap/jumbotron";
+@import "bootstrap/alert";
+@import "bootstrap/progress";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/close";
+@import "bootstrap/toasts";
+@import "bootstrap/modal";
+@import "bootstrap/tooltip";
+@import "bootstrap/popover";
+@import "bootstrap/carousel";
+@import "bootstrap/spinners";
+@import "bootstrap/utilities";
+@import "bootstrap/print";
+$lala: 0.5em;
+
+// Reseteo de Borde de Input Seleccionado Bootstrap
+.exampleModal{
+    padding-left: 0;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    outline: none !important;
+}
+
+.crudContainer{
+    // display: flex; // Borralo si tienes problemas
+    // flex-wrap: wrap; // Borralo si tienes problemas
+    padding: $pc;
+    
+    @media (min-width: $desktop) {
+        padding: $pm;
+        
+    }
+    
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // background: red;
+        margin-bottom: 2em;
+
+        &__title{
+            margin: 0;
+        }
+        
+        
+        &__button{
+            // padding: 0;
+            // display: flex;
+            background-color: $prime-color;
+            border: 0;
+            transition: background-color 0.5s;
+            &:hover{
+                background-color: $secondary-color;
+            }
+
+            span{
+                display: none;
+                @media (min-width: $desktop) {
+                    display: inline-block;
+                }
+            }
+
+            &__icon{
+                margin: 0;
+                @media (min-width: $desktop) {
+                    display: inline-block;
+                    margin-left: 0.5em;
+                }
+            }
+        }
+    }
+    
+    &__body{
+        overflow: auto;
+        
+    }
+    
+}
+
+.table{
+    &__thead{
+
+        &__row{
+            // text-align: center;
+        }
+
+    }
+
+    &__tbody{
+        &__row{
+            // text-align: center;
+
+            &__col{
+                // text-align: center;
+                // background: red;
+                
+                &--mas{
+                    display: flex;
+                    // background: red;
+
+                    &__a{
+                        font-size: 18px;
+                        color: $prime-color;
+                        transition: color 0.5s;
+                        
+                        &--info{
+                            color: $prime-color;
+                            margin-right: $lala;
+                        }
+                        &--edit{
+                            color: rgb(6, 119, 163);
+                            margin-right: $lala;
+                        }
+                        &--trash{
+                            color: #a11313;
+                            margin-right: $lala;
+                        }
+
+                        &:hover{
+                            color: $secondary-color;
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+.agregar{
+    background-color: $prime-color;
+    border: 0;
+
+    &:hover{
+        background-color: $prime-color-hover;
+    }
+}
+
+.agregar, .cancelar{
+    margin-top: 1em;
+}
+
+#form-trash-button{
+    cursor: pointer;
+}
+
+#submit-button-destroy{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    color: #a11313;
+    margin-right: $lala;
+    &:hover{
+        color: #7a0e0e;
+    }
+}
+
+.swal2-cancel.btn.btn-danger{
+    margin-right: 1em;
+}

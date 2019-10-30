@@ -1,0 +1,22 @@
+$x: 3em;
+.wrapper{
+    @media (min-width: $desktop) {
+        padding-bottom: $x;
+    }
+}
+
+.main{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2em;
+    background: rgb(240, 240, 240);
+    @media (min-width: $desktop) {
+        margin-top: $x;
+        padding: 3.5em;
+        border-radius: 16px 16px 16px 16px;
+    }
+}
+
+.ui.button.enviar{
+    margin-top: 1.5em;
+}

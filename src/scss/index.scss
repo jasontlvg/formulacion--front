@@ -1,0 +1,241 @@
+$sombra: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+$size: 200px;
+.container{
+    max-width: 1030px;
+    margin: 0 auto;
+    background: tomato;
+}
+
+.radarContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.top{
+    width: $size * 2;
+    height: $size;
+    background: #9e978e;
+    border-top-left-radius: $size * 2;
+    border-top-right-radius: $size * 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+	overflow: hidden;
+	position: relative;
+}
+
+// sdasdasdsad
+
+.blobs-container {
+	display: flex;
+}
+
+.blob {
+	background: black;
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    margin: 10px;
+    margin: 0;
+	height: 20px;
+	width: 20px;
+	transform: scale(1);
+	animation: pulse-black 2s infinite;
+}
+
+@keyframes pulse-black {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+.blob.blue {
+	background: rgba(52, 172, 224, 1);
+	box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+	animation: pulse-blue 1.8s infinite;
+}
+
+@keyframes pulse-blue {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 1); // Antes el canal alpha=0.7
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 300px rgba(52, 172, 224, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+	}
+}
+
+// purple
+.blob.purple {
+	background: rgba(142, 68, 173, 1);
+	box-shadow: 0 0 0 0 rgba(142, 68, 173, 1);
+	animation: pulse-purple 2s infinite;
+	position: absolute;
+}
+
+@keyframes pulse-purple {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(142, 68, 173, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
+	}
+}
+
+
+// .gridContainer
+.gridContainer{
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 1fr 7fr;
+	grid-template-columns: 1fr 4fr;
+	grid-template-areas: 
+	"owner title title"
+	"owner info info"
+	"owner info info"
+	;
+	background-color: #FCFCFE;
+	.owner{
+		background: #F2F7F8;
+		grid-area: owner;
+		// background: blue;
+	}
+	.title{
+		grid-area: title;
+		// background-color: green;
+	}
+	.info{
+		grid-area: info;
+		// background-color: yellow;
+	}
+}
+
+.owner{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	padding: 2em;
+	h2{
+		text-align: center;
+	}
+	.userIcon{
+		// width: 40%;
+	}
+	
+	&__containerConnected{
+		// background: green;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.connectedIcon{
+			width: 20%;
+		}
+		&__title{
+			margin: 0;
+			color: rgb(20, 167, 20);
+			display: flex;
+			align-items: center;
+		}
+		
+	}
+	box-shadow: $sombra;
+}
+
+.title{
+	// box-shadow: $sombra;
+	// background-color: green;
+	padding: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	h2{
+		margin: 0;
+	}
+
+}
+
+.info{
+	// display: flex;
+	// justify-content: space-around;
+	padding: 2em;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 
+	"radarContainer registersContainer"
+	;
+	// row-gap: 1em;
+	// grid-column-gap: 1em;
+	column-gap: 2em;
+	&__radarContainer{
+		grid-area: radarContainer;
+		// background: tomato;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: $sombra;
+	}
+	&__registersContainer{
+		// width: 50%;
+		// display: flex;
+		grid-area: registersContainer;
+		// background: skyblue;
+		box-shadow: $sombra;
+		overflow: auto;
+
+		ul{
+			list-style-type: none;
+			margin: 0;
+			padding: 2em;
+			
+			
+			li{
+				display: flex;
+				background: #FD7B46;
+				margin: 1em 0;
+				padding: 1em;
+				cursor: pointer;
+				// box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.01), 0 1px 20px 0 rgba(0, 0, 0, 0.19);
+				// transition: box-shadow 0.5s;
+				color: rgb(255, 255, 255);
+				// box-shadow: 0 0 20px -10px rgba(0,0,0,0.7);
+				
+				&:hover{
+					// box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.4);
+					// background: red;
+				}
+				// a{
+				// 	width: 100%;
+				// 	background: purple;
+				// }
+			}
+		}
+	}
+}

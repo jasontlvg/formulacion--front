@@ -1,0 +1,72 @@
+@import 'formGrid';
+
+*{
+    box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    // input,select{
+    //     width: 10em;
+    // }
+    &__label{
+        
+    }
+
+    &__inputContainer{
+        display: block;
+        @media (min-width: $desktop) {
+            // display: flex;
+            justify-content: space-between;
+            
+        }
+        &__input{
+            margin-bottom: 0.5em;
+            @media (min-width: $desktop) {
+                // margin-bottom: 0;
+                // width: 20em;
+                // display: flex;
+                // justify-content: space-between;
+            }
+        }
+    }
+
+    
+
+}
+
+.input{
+    
+    @media (min-width: 902px) {
+        // width: 20em;
+        // background: red;
+    }
+}
+
+.lala{
+    width: 100%;
+}
+
+$wi: 40%;
+
+.girlIcon{
+    display: none;
+    width: $wi;
+
+    &.active{
+        display: block;
+    }
+}
+
+.boyIcon{
+    width: $wi;
+    &.disabled{
+        display: none;
+    }
+}
