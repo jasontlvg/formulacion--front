@@ -1,5 +1,15 @@
 $sombra: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 $size: 200px;
+$sizePhone: 150px;
+
+*{
+	// overflow: auto !important;
+}
+
+body{
+	margin: 0 !important;
+}
+
 .container{
     max-width: 1030px;
     margin: 0 auto;
@@ -8,33 +18,44 @@ $size: 200px;
 
 .radarContainer{
     display: flex;
-    justify-content: center;
+	justify-content: center;
+	position: relative;
+
 }
 
 .top{
-    width: $size * 2;
-    height: $size;
+    // width: $size * 2;
+    width: $sizePhone * 2;
+    height: $sizePhone;
     background: #9e978e;
-    border-top-left-radius: $size * 2;
-    border-top-right-radius: $size * 2;
+    border-top-left-radius: $sizePhone * 2;
+	border-top-right-radius: $sizePhone * 2;
+	// border-radius: 0 ($size*2);
     display: flex;
     justify-content: center;
     align-items: flex-end;
 	overflow: hidden;
 	position: relative;
+	flex: 0 0 auto !important;
+	@media screen and (min-width: 500px){
+		width: $size * 2;
+		height: $size;
+		border-top-left-radius: $size * 2;
+		border-top-right-radius: $size * 2;
+	}
 }
 
 // sdasdasdsad
 
-.blobs-container {
-	display: flex;
-}
+// .blobs-container {
+// 	display: flex;
+// }
 
 .blob {
 	background: black;
 	border-radius: 50%;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-    margin: 10px;
+    // margin: 10px;
     margin: 0;
 	height: 20px;
 	width: 20px;
@@ -88,6 +109,11 @@ $size: 200px;
 	box-shadow: 0 0 0 0 rgba(142, 68, 173, 1);
 	animation: pulse-purple 2s infinite;
 	position: absolute;
+	// top: 90%;
+	// left: 0%;
+	margin-bottom: 120px;
+	margin-left: 3em;
+	// transform:translate(50%, 50%)
 }
 
 @keyframes pulse-purple {
@@ -113,18 +139,38 @@ $size: 200px;
 	width: 100%;
 	height: 100vh;
 	display: grid;
-	grid-template-rows: 1fr 7fr;
-	grid-template-columns: 1fr 4fr;
+	grid-template-rows: 0.15fr 1fr;
+	grid-template-columns: 1fr;
 	grid-template-areas: 
-	"owner title title"
-	"owner info info"
-	"owner info info"
+		// "owner owner owner"
+		"title title title"
+		"info info info"
 	;
+
+	@media screen and (min-width: 970px){
+		grid-template-rows: 0.1fr 1fr 1fr;
+		grid-template-columns: 1fr 4fr;
+		grid-template-areas: 
+			"owner title title"
+			"owner info info"
+			"owner info info"
+		;
+	}
 	background-color: #FCFCFE;
 	.owner{
 		background: #F2F7F8;
 		grid-area: owner;
 		// background: blue;
+		position: fixed;
+		z-index: 1000;
+		width: 70%;
+		left: -100%;
+		height: 100vh;
+		@media screen and (min-width: 970px){
+			position: static;
+			width: 100%;
+			width: initial;
+		}
 	}
 	.title{
 		grid-area: title;
@@ -186,11 +232,20 @@ $size: 200px;
 	// justify-content: space-around;
 	padding: 2em;
 	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr;
 	grid-template-areas: 
-	"radarContainer registersContainer"
+		"radarContainer radarContainer"
+		"registersContainer registersContainer"
 	;
+
+	@media screen and (min-width: 970px){
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+			"radarContainer registersContainer"
+		;
+	}
 	// row-gap: 1em;
 	// grid-column-gap: 1em;
 	column-gap: 2em;
@@ -201,6 +256,11 @@ $size: 200px;
 		align-items: center;
 		justify-content: center;
 		box-shadow: $sombra;
+		margin-bottom: 2em;
+		@media screen and (min-width: 970px){
+			margin-bottom: 0;
+		}
+
 	}
 	&__registersContainer{
 		// width: 50%;
@@ -208,7 +268,7 @@ $size: 200px;
 		grid-area: registersContainer;
 		// background: skyblue;
 		box-shadow: $sombra;
-		overflow: auto;
+		// overflow: auto;
 
 		ul{
 			list-style-type: none;
@@ -237,5 +297,12 @@ $size: 200px;
 				// }
 			}
 		}
+	}
+}
+
+
+@for $i from 1 through 3{
+	.hola.#{$i}{
+		background: red;
 	}
 }
