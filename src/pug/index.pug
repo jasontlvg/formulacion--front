@@ -6,10 +6,10 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
     body
-        .gridContainer
+        .gridContainer#card
             .owner
                 img(src=require('../img/iconhip.png'), alt="" class="userIcon")
-                h2 Bienvenido de Nuevo
+                h2 Bienvenido de Nuevo {{temperature}}
                 .owner__containerConnected
                     img(src=require('../img/usb.png'), alt="" class="connectedIcon")
                     h3.owner__containerConnected__title Conectado
@@ -24,24 +24,26 @@ html(lang="en")
                             .blob.position#position
                 .info__registersContainer
                     ul
-                        li#casa Evento Registrado
+                        li#casa(@click="saludo") Evento Registrado
                         li Evento Registrado
                         li Evento Registrado
                         li Evento Registrado
 
-            .ui.modal.mini
+            .ui.modal.tiny
                 .header
                     p Hola
                 .content
                     .description
-                        p Mundo
-
+                        //- p Mundo
+                        .radarContainer
+                            .top
+                                .blob.blue
+                                .blob.position#positiondb
 
         //- .container
         //-     .radarContainer
         //-         .top
         //-             .blob.blue
-
 
         
 
