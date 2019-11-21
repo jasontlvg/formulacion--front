@@ -14,10 +14,11 @@ export function vueControl(){
             list: [],
             temperature: 10,
             base: 10,
-            grados: 90,
+            grados: 0,
             longitud: 10,
-            gradosdb: 45,
-            longitudb: 10
+            gradosdb: 0,
+            longitudb: 0,
+            list: [{grados:180, longitud: 10},{grados:45, longitud: 10},{grados:5, longitud: 6},{grados:7, longitud: 8}]
             
         },
         methods: {
@@ -69,6 +70,20 @@ export function vueControl(){
                 componentY= (longitudYPixels)*(Math.sin(radianes));
                 dot.style.top= height-(componentY) + "px";
                 dot.style.left= width+(componentX) + "px";
+            },
+            modal: function(grados, longitud){
+                this.gradosdb= grados;
+                this.longitudb= longitud;
+                let desktop= matchMedia('(min-width: 500px)').matches;
+                if(desktop){
+                    this.posicionardb(190,180);
+                }else{
+                    this.posicionardb(140,130);
+                }
+                
+                $('.ui.modal').modal('show');
+                console.log('Hola')
+
             }
             
         },

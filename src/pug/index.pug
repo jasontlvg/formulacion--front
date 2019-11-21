@@ -24,10 +24,7 @@ html(lang="en")
                             .blob.position#position
                 .info__registersContainer
                     ul
-                        li#casa(@click="saludo") Evento Registrado
-                        li Evento Registrado
-                        li Evento Registrado
-                        li Evento Registrado
+                        li(v-for="item in list" @click="modal(item.grados,item.longitud)") Evento Registrado
 
             .ui.modal.tiny
                 .header
@@ -39,6 +36,8 @@ html(lang="en")
                             .top
                                 .blob.blue
                                 .blob.position#positiondb
+                        p Grados: {{gradosdb}}°
+                        p Longitud: {{longitudb}}cm
 
         //- .container
         //-     .radarContainer

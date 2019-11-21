@@ -13,7 +13,8 @@ module.exports = {
     output: {
         path: __dirname+'/dist/',
         // publicPath: './',
-        filename: 'js/[name].js', // Quita el js/ si tenemos problemas
+        // filename: 'js/[name].js', // Quita el js/ si tenemos problemas
+        filename: '[name].js', // Quita el js/ si tenemos problemas
         // filename: 'js/[name].[chunkhash].js', // Quita el js/ si tenemos problemas
         // publicPath: "/dist/"
     },
